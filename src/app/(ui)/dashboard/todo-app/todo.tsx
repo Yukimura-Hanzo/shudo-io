@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogClose,
@@ -128,8 +127,7 @@ export default function Todo(props: TodoProps) {
               <DialogHeader className="text-left">
                 <DialogTitle>&#x1F4DD;Edit task</DialogTitle>
                 <DialogDescription>
-                  Make changes to your task here. Click save when you&apos;re
-                  done.
+                  Make changes to your task here. Click save when you&apos;re done.
                 </DialogDescription>
               </DialogHeader>
               {editingTemplate}

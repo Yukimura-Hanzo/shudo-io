@@ -24,8 +24,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 //? UI COMPONENTS
 import Form from "./form";
-import Todo from "@/app/(ui)/dashboard/todo/todo";
-import FilterButton from "@/app/(ui)/dashboard/todo/filter-button";
+import Todo from "@/app/(ui)/dashboard/todo-app/todo";
+import FilterButton from "@/app/(ui)/dashboard/todo-app/filter-button";
 
 // -----------------------------
 // Types & Constants
@@ -151,15 +151,12 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
       if (todo.id === id) {
         //* Toggle completion status
         const isNowCompleted = !todo.completed;
-
         //* Set completion timestamp if completed, else undefined
         const completedAt = isNowCompleted ? new Date().toISOString() : undefined;
-
         //* Calculate time taken if just completed
         const timeTaken = isNowCompleted && todo.createdAt
           ? calculateTimeTaken(todo.createdAt, completedAt!)
           : undefined;
-
         //* Return updated todo object
         const updated = {
           ...todo,
@@ -167,13 +164,10 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
           completedAt,
           timeTaken,
         };
-
         return updated; //* Return modified todo
       }
-
       return todo; //* Leave unchanged todos as is
     });
-
     //* Update todos state with modified array
     setTodos(updatedTodos);
   }
@@ -198,7 +192,6 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
   function createTodo(title: string) {
     //* Generate a random XP value between 0 and 99
     const randomXp = Math.floor(Math.random() * 100);
-
     //* Create a new todo object
     const newTodo: TodoType = {
       id: `todo-${nanoid()}`,            //* Unique ID using nanoid
@@ -207,7 +200,6 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
       completed: false,                    //* Default to not completed
       createdAt: new Date().toISOString(), //* Current timestamp
     };
-
     //* Add the new todo to the current list
     setTodos([...todos, newTodo]);
   }
@@ -247,7 +239,7 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
   const todosNoun = todoList.length !== 1 ? "todo's" : "todo";
 
   //* Create heading text showing how many todos are remaining
-  const headingText = `${todoList.length} ${todosNoun} remaining`;
+  // const headingText = `${todoList.length} ${todosNoun} remaining`;
 
   return (
     <div className="todos-card-container border-3 m-4">
@@ -269,8 +261,7 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
                   <DialogHeader className="text-left">
                     <DialogTitle>&#x1F3AF; Create a task</DialogTitle>
                     <DialogDescription>
-                      Add a new task here. Click save when you&apos;re
-                      done.
+                      Add a new task here. Click save when you&apos;re done.
                     </DialogDescription>
                   </DialogHeader>
                   {/* Create todo form */}

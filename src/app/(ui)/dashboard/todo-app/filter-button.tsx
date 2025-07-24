@@ -1,8 +1,7 @@
 "use client";
 
 //? SHADCN UI
-import { Button } from "@/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils"; //? helper from shadcn to conditionally join classes
 
 //? TS Types
