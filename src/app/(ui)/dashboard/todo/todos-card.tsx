@@ -221,6 +221,7 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
       key={todo.id}                         //* Unique key for React rendering
       id={todo.id}                          //* ID prop
       title={todo.title}                    //* Title prop
+      xp={todo.xp}
       completed={todo.completed}            //* Completed status
       createdAt={todo.createdAt}            //* Creation timestamp
       completedAt={todo.completedAt}        //* Completion timestamp

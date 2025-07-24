@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogClose,
@@ -24,6 +25,7 @@ import { MoreHorizontal } from "lucide-react";
 type TodoProps = {
   id: string;
   title: string;
+  xp: number;
   completed: boolean;
   createdAt: string;
   completedAt?: string;
@@ -71,6 +73,7 @@ export default function Todo(props: TodoProps) {
   //* --- TEMPLATE WHEN EDITING IS TRUE ---
   const editingTemplate = (
     <form onSubmit={handleSubmit}>
+      <small>Experience Points: {props.xp}+</small>
       {/* Input field bound to newName state */}
       <Input
         id={props.id}
@@ -78,6 +81,7 @@ export default function Todo(props: TodoProps) {
         value={newTitle}
         onChange={handleChange}
         placeholder={props.title} //* placeholder shows current todo title
+        className="mt-4"
       />
       <div className="flex items-center justify-between w-full mt-4">
       {/* Delete button */}
@@ -122,7 +126,7 @@ export default function Todo(props: TodoProps) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader className="text-left">
-                <DialogTitle>Edit task</DialogTitle>
+                <DialogTitle>&#x1F4DD;Edit task</DialogTitle>
                 <DialogDescription>
                   Make changes to your task here. Click save when you&apos;re
                   done.
