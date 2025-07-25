@@ -10,7 +10,7 @@ export default function DashboardOverview() {
       <ProfileCard />
       <DateCard />
       <TodosCard />
-      <BudgetCard />
+      {/* <BudgetCard /> */}
     </>
   );
 }
