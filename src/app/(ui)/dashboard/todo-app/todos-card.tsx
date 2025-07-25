@@ -16,10 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/components/ui/toggle-group";
+import { ToggleGroup } from "@/components/ui/toggle-group";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 //? UI COMPONENTS
@@ -77,7 +74,7 @@ function getXpForNextLevel(level: number) {
 // -----------------------------
 // Component
 // -----------------------------
-export default function TodosCard({ todos: initialTodos }: AppProps) {
+export default function TodosCard() {
   //* State: full todo list
   const [todos, setTodos] = useState<TodoType[]>([
     {
@@ -236,7 +233,7 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
   ));
 
   //* Determine whether to use "todo" or "todo's" based on the count
-  const todosNoun = todoList.length !== 1 ? "todo's" : "todo";
+  // const todosNoun = todoList.length !== 1 ? "todo's" : "todo";
 
   //* Create heading text showing how many todos are remaining
   // const headingText = `${todoList.length} ${todosNoun} remaining`;
@@ -246,10 +243,10 @@ export default function TodosCard({ todos: initialTodos }: AppProps) {
       <div className="todos-card-content p-4">
         <div className="flex items-center justify-between w-full">
           <span className="flex items-center">
-            <h2 className="font-semibold">&#x1F4D4;	To-Do's App</h2>
-        <Badge className="h-5 min-w-5 rounded-full px-1 mx-2 font-mono tabular-nums">
-          {todoList.length}
-        </Badge>
+            <h2 className="font-semibold">&#x1F4D4;	To-Do&apos;s App</h2>
+            <Badge className="h-5 min-w-5 rounded-full px-1 mx-2 font-mono tabular-nums">
+              {todoList.length}
+            </Badge>
           </span>
           <span>
             <Dialog>

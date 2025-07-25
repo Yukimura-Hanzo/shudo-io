@@ -1,4 +1,5 @@
 //? UI COMPONENTS
+import BudgetCard from "@/app/(ui)/dashboard/financial-log-app/budget-card";
 import DateCard from "@/app/(ui)/dashboard/date-card";
 import ProfileCard from "@/app/(ui)/dashboard/profile-card";
 import TodosCard from "@/app/(ui)/dashboard/todo-app/todos-card";
@@ -8,8 +9,8 @@ export default function DashboardOverview() {
     <>
       <ProfileCard />
       <DateCard />
-      {/* @ts-expect-error - TodosCard component expects a todos prop initializing with hardcoded todos inside the component anyway, you don't need the todos prop at all */}
       <TodosCard />
+      <BudgetCard />
     </>
   );
 }
